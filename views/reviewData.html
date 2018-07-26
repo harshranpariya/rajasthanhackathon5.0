@@ -1,0 +1,69 @@
+<html>
+	<head>
+    <% include head.html %>
+  </head>
+
+  <body style="text-size: 24px">
+    <div class = "wrapper">
+      <% include header.html %> 
+    </div>
+
+    <div class = "content">
+    <form >
+      <fieldset style="margin: 30px 10px; ">
+        <legend align="center">Feed Us:</legend>
+        <div id="quesRes" class="fl w-100"></div>
+      </fieldset>
+      </form>
+    </div>
+    <% include footer.html %>
+
+    <script>
+
+    var quizObj = [
+      {
+        "question": "<ul><li>Is this toilet open?<br> क्या यह शौचालय खुला है?</li></ul>",
+        "choice": ["Yes હા", "No ના"]
+      },
+      {
+        "question": "<ul><li>Is it Women-friendly?<br> क्या यह महिलाओं के अनुकूल है?</li></ul>",
+        "choice": ["Yes હા", "No ના"],  //quizObj[2].choice[0],quizObj[2].choice[1]
+      },
+      {
+        "question": "<ul><li>Is this clean toilet?<br> क्या यह स्वच्छ शौचालय है?</li></ul>",
+        "choice": ["Yes હા", "No ના"],  //quizObj[2].choice[0],quizObj[2].choice[1]
+      },
+      {
+        "question": "<ul><li>Is water facility available? <br> क्या पानी की सुविधा उपलब्ध है?</li></ul>",
+        "choice": ["Yes હા", "No ના"],  //quizObj[2].choice[0],quizObj[2].choice[1]
+      },
+      {
+        "question": "<ul><li>Are taps working properly?<br> नल ठीक से काम कर रहे हैं?</li></ul>",
+        "choice": ["Yes હા", "No ના"],  //quizObj[2].choice[0],quizObj[2].choice[1]
+      }
+
+    ];
+
+    var track = [];
+
+    var maxQues = 5;
+    var ne = 1;
+    var rand = Math.floor(Math.random() * maxQues);
+
+    var str = '<div class="container"><h2 class="header"></h2><br><h4>';
+
+    for (var i = 0; i < ne; i++) {
+
+      var rand = Math.floor(Math.random() * maxQues);
+      str += quizObj[rand].question + '<h4>';
+      str += '<form><table>' +
+        '<tr><td id="a1" ><a class="f6 link dim br3 ph3 pv2 mb2 dib white bg-dark-green" href="/nearby">Yes | हा </a></td><td id="a2"><a class="f6 link dim br3 ph3 pv2 mb2 dib white bg-dark-red" href="/nearby">No | नहीं</a></td></tr>' +
+        '<tr></tr>' +
+        '</table></form>';
+      track[i] = rand;
+    }
+    document.getElementById('quesRes').innerHTML = str;
+  </script>
+  </body>
+
+</html>
